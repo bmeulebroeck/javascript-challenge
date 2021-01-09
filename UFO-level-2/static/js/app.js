@@ -1,8 +1,6 @@
 // from data.js
 var tableData = data;
 
-// YOUR CODE HERE!
-
 // Code to display the data in the table
 var tbody = d3.select("tbody");
 
@@ -19,7 +17,7 @@ var button = d3.select("#filter-btn");
 var form = d3.select("#form");
 
 button.on("click", runEnter);
-form.on("submit", runEnter);
+form.on("keyup", runEnter);
 
 function runEnter() {
     d3.event.preventDefault();
@@ -52,19 +50,15 @@ function runEnter() {
     if (inputDate) {
         filteredData = filteredData.filter(ufoSighting => ufoSighting.datetime === inputDate);
     }
-
     if (inputCity) {
         filteredData = filteredData.filter(ufoSighting => ufoSighting.city === inputCity);
     }
-
     if (inputState) {
         filteredData = filteredData.filter(ufoSighting => ufoSighting.state === inputState);
     }
-
     if (inputCountry) {
         filteredData = filteredData.filter(ufoSighting => ufoSighting.country === inputCountry);
     }  
-   
     if (inputShape) {
         filteredData = filteredData.filter(ufoSighting => ufoSighting.shape === inputShape);
     }
